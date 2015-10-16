@@ -1,0 +1,21 @@
+{
+    "name" : "thibautg16/epargne-bundle",
+    "version" : "0.1",
+    "homepage" : "https://github.com/Thibautg16/EpargneBundle",
+    "description" : "Symfony Epargne Bundle",
+    "keywords" : [
+        "symfony", "bundle", "epargne", "banque", "compte"
+    ],
+    "type" : "symfony-bundle",
+    "license":"GNU",
+    "authors" : [{
+        "name" : "GILLARDEAU Thibaut (aka Thibautg16)",
+        "email" : "thibaut@thibaut.ovh"
+    }],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload": {
+        "psr-0": { "EpargneBundle\\": "src" }
+    }
+}
