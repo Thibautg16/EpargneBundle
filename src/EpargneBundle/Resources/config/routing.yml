@@ -7,6 +7,46 @@
 #  - Gillardeau Thibaut (aka Thibautg16)
 #
 
+epargne_accueil:
+    path:  /
+    defaults: { _controller: EpargneBundle:Epargne:accueil}
+
 epargne_compte_liste:
     path:  /epargne/compte/liste
     defaults: { _controller: EpargneBundle:Compte:liste}
+
+epargne_compte_mescomptes:
+    path:  /epargne/compte/mescomptes
+    defaults: { _controller: EpargneBundle:Compte:mescomptes}
+
+epargne_compte_lignes:
+    path:  /epargne/compte/{idCompte}/lignes
+    defaults: { _controller: EpargneBundle:Compte:lignes}
+
+epargne_ligne_liste:
+    path:  /epargne/ligne/liste/{idCompte}
+    defaults: { _controller: EpargneBundle:Ligne:liste}    
+
+epargne_lignes_validation:
+    path:  /epargne/lignes/validation/{idLigne}
+    defaults: { _controller: EpargneBundle:Compte:lignesValidation}
+
+epargne_ligne_modifier:
+    path:  /epargne/ligne/modifier/{idLigne}
+    defaults: { _controller: EpargneBundle:Ligne:modifier}
+
+epargne_ligne_ajouter:
+    path:  /epargne/ligne/ajouter/{idCompte}
+    defaults: { _controller: EpargneBundle:Ligne:ajouter}
+
+epargne_ligne_importer:
+    path:  /epargne/ligne/importer/{idCompte}
+    defaults: { _controller: EpargneBundle:Ligne:importer} 
+    
+epargne_compte_graph:
+    path:  /epargne/compte/graph/{idCompte}
+    defaults: { _controller: EpargneBundle:Compte:graph}
+
+epargne_compte_ajaxgraph:
+    path:  /epargne/compte/graph
+    defaults: { _controller: EpargneBundle:Compte:graphajax}

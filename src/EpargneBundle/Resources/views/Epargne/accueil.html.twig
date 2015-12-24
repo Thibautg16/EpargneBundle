@@ -1,0 +1,19 @@
+{# Epargne/Resources/views/Epargne/accueil.html.twig #}
+ 
+{% extends "Thibautg16SqueletteBundle::layout.html.twig" %}
+ 
+{% block title %}
+	{{ parent() }} - Accueil
+{% endblock %}
+
+{% block fil_ariane %} 
+	{{ parent() }} 
+    <li><a href="#">Accueil</a></li>
+{% endblock %}
+
+{% block body_thibautg16 %}    
+    <div class="col-sm-12">
+		<a href="{{ path('epargne_compte_mescomptes') }}" ><button class="btn btn-lg btn-primary btn-block">Mes Comptes</button></a>
+		<br />
+	</div>
+{% endblock %}

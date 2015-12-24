@@ -8,7 +8,7 @@
  *  - Gillardeau Thibaut (aka Thibautg16)
  */
  
-namespace Thibautg16\CompteBundle\Entity;
+namespace EpargneBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -18,9 +18,9 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Compte
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Thibautg16\EpargneBundle\Entity\CompteRepository")
+ * @ORM\Entity(repositoryClass="EpargneBundle\Entity\EpargneCompteRepository")
  */
-class Compte
+class EpargneCompte
 {
     /**
      * @var integer
@@ -58,8 +58,27 @@ class Compte
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
+    
+    /**
+    * @ORM\OneToMany(targetEntity="EpargneLigneCompte", mappedBy="compte", cascade={"remove", "persist"})
+    */
+    protected $lignes;  
+    
+    /**
+	* @ORM\ManyToMany(targetEntity="Thibautg16\UtilisateurBundle\Entity\Utilisateur" , inversedBy="comptes")
+	* @ORM\JoinColumn(name="utilisateur_id", referencedColumnName="id", nullable=false)
+	*/
+	protected $utilisateurs; 
 
-
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->lignes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->utilisateurs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -165,4 +184,74 @@ class Compte
     {
         return $this->nom;
     }
+    
+
+
+    /**
+     * Add ligne
+     *
+     * @param \EpargneBundle\Entity\EpargneLigneCompte $ligne
+     *
+     * @return EpargneCompte
+     */
+    public function addLigne(\EpargneBundle\Entity\EpargneLigneCompte $ligne)
+    {
+        $this->lignes[] = $ligne;
+
+        return $this;
+    }
+
+    /**
+     * Remove ligne
+     *
+     * @param \EpargneBundle\Entity\EpargneLigneCompte $ligne
+     */
+    public function removeLigne(\EpargneBundle\Entity\EpargneLigneCompte $ligne)
+    {
+        $this->lignes->removeElement($ligne);
+    }
+    
+  /**
+     * Get lignes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLignes()
+    {
+        return $this->lignes;
+    }
+
+    /**
+     * Add utilisateur
+     *
+     * @param \Thibautg16\UtilisateurBundle\Entity\Utilisateur $utilisateur
+     *
+     * @return EpargneCompte
+     */
+    public function addUtilisateur(\Thibautg16\UtilisateurBundle\Entity\Utilisateur $utilisateur)
+    {
+        $this->utilisateurs[] = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Remove utilisateur
+     *
+     * @param \Thibautg16\UtilisateurBundle\Entity\Utilisateur $utilisateur
+     */
+    public function removeUtilisateur(\Thibautg16\UtilisateurBundle\Entity\Utilisateur $utilisateur)
+    {
+        $this->utilisateurs->removeElement($utilisateur);
+    }
+
+    /**
+     * Get utilisateurs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUtilisateurs()
+    {
+        return $this->utilisateurs;
+    }  
 }

@@ -1,0 +1,51 @@
+{# Epargne/Resources/views/Compte/graph.html.twig #}
+
+{% extends "Thibautg16SqueletteBundle::layout.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
+
+{% block fil_ariane %} 
+	{{ parent() }} 
+    <li><a href="#">Accueil</a></li>
+    <li><a href="{{ path('epargne_compte_liste') }}">Comptes</a></li>
+    <li class="active"><a href="">Mouvements</a></li>
+{% endblock %}
+
+{% block body_thibautg16 %}   
+    <script type="text/javascript" charset="utf8" src="{{ asset('bundles/epargne/js/graph_ajax.js') }}"></script>
+
+    <!-- Chemin vers la page AJAX -->
+    <input type="hidden" id="chemin" value="{{ path('epargne_compte_ajaxgraph') }}" />
+     
+    <div class="col-sm-12">
+        <fieldset>     
+		  <legend><h3>Graph</h3></legend>        
+    		<br/>
+            <div>
+                  <div class="col-md-12" style="text-align:center">
+                    <label for="lst_graph">Critére :</label>
+                    <select size="1" id="lst_graph" onchange="EpargneGraph({{ idCompte }} )">
+                        <option value="type" {% if graph == 'type' %} selected="selected" {% endif %} >Type</option>
+                        <option value="designation" {% if graph == 'designation' %} selected="selected" {% endif %} >Désignation</option>
+                    </select><br/>
+ 
+                    <label for="debPeriode">Période du : </label>
+                    <input type="text" id="debPeriode" name="debPeriode" value="{{ debPeriode }}" onchange="EpargneGraph({{ idCompte }} )"> 
+                    <label for="finPeriode">au : </label>
+                    <input type="text" id="finPeriode" name="finPeriode" value="{{ finPeriode }}" onchange="EpargneGraph({{ idCompte }} )"><br/>
+                    <br/>
+            	</div>          
+            
+        	    <div id="zone">
+                    <div id="chart" class="col-md-12" style="min-width: 400px; height: 600px; margin: 0 auto"></div>
+                    
+                    <script type="text/javascript">
+                        {{ chart(ob) }}
+                    </script>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+{% endblock %}

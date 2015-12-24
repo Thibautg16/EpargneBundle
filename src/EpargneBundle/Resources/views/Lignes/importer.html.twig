@@ -1,0 +1,27 @@
+{# src/EpargneBundle/Resources/views/Lignes/importer.html.twig #}
+
+{% extends "Thibautg16SqueletteBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} - Importer Lignes
+{% endblock %}
+
+{% block fil_ariane %} 
+	{{ parent() }} 
+    <li><a href="#">Accueil</a></li>
+    <li class="active"><a href="{{ path('epargne_compte_liste') }}">Comptes</a></li>
+{% endblock %}
+
+{% block body_thibautg16 %}   
+    <div class="col-sm-12">
+        <fieldset>
+			<legend><h3>Importer lignes</h3></legend> 
+            
+            <form action="" method="post" {{ form_enctype(form) }}>
+                {{ form_widget(form) }}
+
+                <input type="submit" />
+            </form>
+        </fieldset>
+    </div>            
+{% endblock %}
