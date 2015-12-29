@@ -3,7 +3,9 @@
 **//!\\ Attention : ce module est en cours de développement, il n'est actuellement pas complètement fonctionnel //!\\**
 
 ### Prérequis
-- php 5.3.3
+- php 5.3.9
+- Symfony 2.8.*
+- ObHighchartsBundle
 - Thibautg16UtilisateurBundle
 - Thibautg16SqueletteBundle
 
@@ -39,3 +41,15 @@
         EpargneBundle:
             resource: "@EpargneBundle/Resources/config/routing.yml"
             prefix:   /
+
+6. Ajouter la relation entre le bundle Utilisateur et le bundle Epargne
+
+        6.1 Ajouter les lignes suivantes dans le fichier :
+        - vendor/thibautg16/utilisateur-bundle/src/Thibautg16/UtilisateurBundle/Entity/Utilisateur.php
+                /**
+                * @ORM\ManyToMany(targetEntity="EpargneBundle\Entity\EpargneCompte" , mappedBy="utilisateurs")
+                */
+                protected $comptes;
+        
+        6.2 Mettre à jour les entites du bundle Utilisateur
+                # php app/console doctrine:generate:entities Thibautg16UtilisateurBundle

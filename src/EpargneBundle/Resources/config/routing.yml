@@ -19,17 +19,13 @@ epargne_compte_mescomptes:
     path:  /epargne/compte/mescomptes
     defaults: { _controller: EpargneBundle:Compte:mescomptes}
 
-epargne_compte_lignes:
-    path:  /epargne/compte/{idCompte}/lignes
-    defaults: { _controller: EpargneBundle:Compte:lignes}
-
 epargne_ligne_liste:
     path:  /epargne/ligne/liste/{idCompte}
     defaults: { _controller: EpargneBundle:Ligne:liste}    
 
-epargne_lignes_validation:
-    path:  /epargne/lignes/validation/{idLigne}
-    defaults: { _controller: EpargneBundle:Compte:lignesValidation}
+epargne_ligne_valider:
+    path:  /epargne/ligne/valider/{idLigne}
+    defaults: { _controller: EpargneBundle:Ligne:valider}
 
 epargne_ligne_modifier:
     path:  /epargne/ligne/modifier/{idLigne}

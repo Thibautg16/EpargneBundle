@@ -46,7 +46,7 @@
                     <td> {% if ligne.montant is defined %} {{ ligne.montant }} {% endif %} </td>
                     <td> {% if ligne.solde is defined %} {% if ligne.solde != 0 %} {{ ligne.solde }} {% else %} <span class="glyphicon glyphicon-minus"> {% endif %}{% endif %}  </td>
                     <td> {% if ligne.valider == true %} <span class="glyphicon glyphicon-ok"> 
-                        {% elseif valider == ligne.id %} <a href="{{ path('epargne_lignes_validation', {'idLigne':ligne.id}) }}" ><span class="glyphicon glyphicon-repeat"></a>
+                        {% elseif valider == ligne.id %} <a href="{{ path('epargne_ligne_valider', {'idLigne':ligne.id}) }}" ><span class="glyphicon glyphicon-repeat"></a>
                         {% else %} <span class="glyphicon glyphicon-minus"> {% endif %}</td>
                     <td><a href="{{ path('epargne_ligne_modifier', {'idLigne':ligne.id}) }}"><span class="glyphicon glyphicon-pencil"></span></a></td>
                     <td> {% if ligne.valider == false %} <a href=""><span class="glyphicon glyphicon-remove"></span></a></td>

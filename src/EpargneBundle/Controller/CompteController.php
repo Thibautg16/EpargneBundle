@@ -45,10 +45,9 @@ class CompteController extends Controller{
     
     public function mescomptesAction(){
         // On récupère tous les comptes de l'utilisateur
-        $em = $this->getDoctrine()->getManager();
-        $lstCompte = $em->getRepository('Thibautg16UtilisateurBundle:Utilisateur')->find($this->getUser()->getId());
-
-        dump($lstCompte); exit;
+        $lstCompte = $this->getUser()->getComptes();
+        
+        return $this->render('EpargneBundle:Compte:liste.html.twig', array('listeCompte' => $lstCompte));
     }    
     
         public function lignesValidationAction($idLigne){

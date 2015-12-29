@@ -109,7 +109,7 @@ class LigneController extends Controller{
         }
     }
     
-        public function lignesValidationAction($idLigne){
+        public function validerAction($idLigne){
                 $em = $this->getDoctrine()->getManager();
                 // On vérifie si l'compte (via les groupes) est autorisé à consulter cette page
                 if($em->getRepository('Thibautg16UtilisateurBundle:Groupe')->GroupeAutoriseRoute($this->getUser(), $this->container->get('request')->get('_route')) == TRUE){
@@ -145,7 +145,7 @@ class LigneController extends Controller{
                         }
                         
 			// On redirige vers la liste des lignes
-			return $this->redirect($this->generateUrl('epargne_compte_lignes', array('idCompte' => $oLigne->getCompte()->getId())));               
+			return $this->redirect($this->generateUrl('epargne_ligne_liste', array('idCompte' => $oLigne->getCompte()->getId())));               
                 }
                 else{
                         return $this->redirect($this->generateUrl('thibautg16_compte_homepage'));        
@@ -192,7 +192,7 @@ class LigneController extends Controller{
                                 
                                 $request->getSession()->getFlashBag()->add('notice', 'Ligne : '.$oLigne->getId().' modifée avec succés');
                                 
-                                return $this->redirect($this->generateUrl('epargne_compte_lignes', array('idCompte' => $oLigne->getCompte()->getId())));
+                                return $this->redirect($this->generateUrl('epargne_ligne_liste', array('idCompte' => $oLigne->getCompte()->getId())));
                         }
                         
                         // À ce stade, le formulaire n'est pas valide car :
@@ -290,7 +290,7 @@ class LigneController extends Controller{
                                         }
                                 fclose($handle);                                                             
         
-                                return $this->redirect($this->generateUrl('epargne_compte_lignes', array('idCompte' => $oLigne->getCompte()->getId())));                                
+                                return $this->redirect($this->generateUrl('epargne_ligne_liste', array('idCompte' => $oLigne->getCompte()->getId())));                                
                                 }                               
                         }
                         
