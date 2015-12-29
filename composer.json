@@ -19,6 +19,7 @@
         "thibautg16/squelette-bundle": "dev-master",
         "thibautg16/utilisateur-bundle": "dev-master"
     },
+    "minimum-stability": "dev",
     "autoload": {
         "psr-0": { "EpargneBundle\\": "src" }
     }
