@@ -15,9 +15,21 @@ epargne_compte_liste:
     path:  /epargne/compte/liste
     defaults: { _controller: EpargneBundle:Compte:liste}
 
+epargne_compte_modifier:
+    path:  /epargne/compte/modifier/{idCompte}
+    defaults: { _controller: EpargneBundle:Compte:modifier}
+
 epargne_compte_mescomptes:
     path:  /epargne/compte/mescomptes
     defaults: { _controller: EpargneBundle:Compte:mescomptes}
+
+epargne_compte_graph:
+    path:  /epargne/compte/graph/{idCompte}
+    defaults: { _controller: EpargneBundle:Compte:graph}
+
+epargne_compte_ajaxgraph:
+    path:  /epargne/compte/graph
+    defaults: { _controller: EpargneBundle:Compte:graphajax}
 
 epargne_ligne_liste:
     path:  /epargne/ligne/liste/{idCompte}
@@ -37,12 +49,4 @@ epargne_ligne_ajouter:
 
 epargne_ligne_importer:
     path:  /epargne/ligne/importer/{idCompte}
-    defaults: { _controller: EpargneBundle:Ligne:importer} 
-    
-epargne_compte_graph:
-    path:  /epargne/compte/graph/{idCompte}
-    defaults: { _controller: EpargneBundle:Compte:graph}
-
-epargne_compte_ajaxgraph:
-    path:  /epargne/compte/graph
-    defaults: { _controller: EpargneBundle:Compte:graphajax}
+    defaults: { _controller: EpargneBundle:Ligne:importer}

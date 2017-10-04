@@ -11,6 +11,8 @@
 
 ## Installation EpargneBundle
 ### Installation à l'aide de composer
+1. Installer symfony si necessaire :
+        composer create-project symfony/framework-standard-edition epargne "2.8.*"
 
 1. Ajouter ``thibautg16/epargne-bundle`` comme dépendance de votre projet dans le fichier ``composer.json`` :
 

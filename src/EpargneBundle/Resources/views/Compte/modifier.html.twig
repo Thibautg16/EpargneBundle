@@ -1,0 +1,33 @@
+{# EpargneBundle/Resources/views/Compte/modifier.html.twig #}
+ 
+{% extends "Thibautg16SqueletteBundle::layout.html.twig" %}
+ 
+{% block title %}
+	{{ parent() }} - Modifier Compte
+{% endblock %}
+
+{% block fil_ariane %} 
+	{{ parent() }} 
+    <li><a href="{{ path('epargne_accueil') }}">Accueil</a></li>
+    <li><a href="{{ path('epargne_compte_liste') }}">Comptes</a></li>
+	<li class="active"><a href="">Modifier</a></li>
+{% endblock %}
+
+{% block body_thibautg16 %}
+	<div class="container">    
+		<fieldset>       
+			<legend><h3>Modification Compte : {{ compte.nom }}</h3></legend>
+			<div class="well">
+				{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+				
+                {# Les erreurs générales du formulaire. #}
+				{{ form_errors(form) }}
+				             							
+				{# Génération automatique des champs pas encore écrits #}
+				{{ form_rest(form) }}
+						  
+				{# Fermeture de la balise <form> du formulaire HTML #}
+				{{ form_end(form) }}  
+  		</fieldset>        
+	</div>
+{% endblock %}

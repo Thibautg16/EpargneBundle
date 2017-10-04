@@ -248,6 +248,7 @@ class EpargneLigneCompte
                          "Laposte" => array("Laposte","COLISSIMO", "COLIPOSTE", "La poste"),
                          "Livret A" => array("Livret A"),
                          "Loyer" => array("Loyer"),
+                         "Maison" => array("Maison"),
                          "Meuble" => array("Meuble"),
                          "Salaire" => array(""),
                          "Salaire Thibaut" => array("Salaire", "GFK", "VIR DE OVH"),

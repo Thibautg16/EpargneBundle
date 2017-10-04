@@ -14,11 +14,13 @@
     }],
     "require": {
         "php": ">=5.3.9",
-        "symfony/symfony": "2.8.*",
+        "symfony/symfony": "3.*",
         "ob/highcharts-bundle": "1.*",
-        "thibautg16/squelette-bundle": "@dev",
-        "thibautg16/utilisateur-bundle": "@dev"
+        "thibautg16/squelette-bundle": "dev-master",
+        "thibautg16/utilisateur-bundle": "dev-master"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-0": { "EpargneBundle\\": "src" }
     }

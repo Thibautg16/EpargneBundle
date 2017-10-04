@@ -25,7 +25,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 class EpargneController extends Controller{
 
         public function accueilAction(){
-                //On ne controle pas l'accés, c'est une page public
-                return $this->render('EpargneBundle:Epargne:accueil.html.twig');
+                $em = $this->getDoctrine()->getManager();
+                // On vérifie si l'utilisateur (via les groupes) est autorisé à administrer "les utilisateurs"
+                if($em->getRepository('Thibautg16UtilisateurBundle:Groupe')->GroupeAutoriseRoute($this->getUser(), "thibautg16_utilisateur_liste") == TRUE){    
+                    return $this->render('EpargneBundle:Epargne:accueil.html.twig', array('admin' => TRUE));                
+                }
+                else{
+                    return $this->render('EpargneBundle:Epargne:accueil.html.twig', array('admin' => FALSE));
+                }    
         }
 }

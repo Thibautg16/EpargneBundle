@@ -47,7 +47,7 @@
                     <td><a href="{{ path('epargne_ligne_ajouter', {'idCompte':compte.id}) }}"><span class="glyphicon glyphicon-plus"></span></a></td>
                     <td><a href="{{ path('epargne_ligne_importer', {'idCompte':compte.id}) }}"><span class="glyphicon glyphicon-download-alt"></span></a></td>
                     <td><a href="{{ path('epargne_compte_graph', {'idCompte':compte.id}) }}"><span class="glyphicon glyphicon-signal"></span></a></td>
-                    <td><a href=""><span class="glyphicon glyphicon-pencil"></span></a></td>
+                    <td><a href="{{ path('epargne_compte_modifier', {'idCompte':compte.id}) }}"><span class="glyphicon glyphicon-pencil"></span></a></td>
                     <td><a href=""><span class="glyphicon glyphicon-remove"></span></a></td>
                 </tr>
                 {% endfor %}
